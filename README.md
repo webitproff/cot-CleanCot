@@ -16,10 +16,10 @@ The CleanCot theme for CMF Cotonti. Modern Bootstrap theme on v.5.3.3 for Cotont
 cleancot/     # Папка основного шаблона, она же тема сайта 
 	├── css/                  # Папка со стилями шаблона
 		│   └── extras.css
-		│   └── modalbox.css  # в основном системные модальные уведомления и диалоги
+		│   └── modalbox.css      # в основном системные модальные уведомления и диалоги
 		│   └── style.css	  # основной файл кастомных стилей темы cleancot
 	├── fontawesome/          # The Font Awesome Free 6.7.2 library includes only the minimally necessary files.
-	├── img/                  # Папка со стилями с иконками и изображениями
+	├── img/                  # Папка с иконками и изображениями
 	├── inc/                  # Папка со своими подключаемыми шаблонами HTML-блоков
 		│   └── mskin.tpl                                      # показывает админу путь шаблона, если он есть в переменной логики Cotonti
 		│   └── two-level-drop-down-menu.tpl                   # HTML-блок кастомного dropdown меню с разделами сайта   
