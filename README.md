@@ -198,4 +198,13 @@ HTML-блок в файле themes/cleancot/inc/two-level-drop-down-menu.tpl<br 
 
 <p>&nbsp;</p>
 
+## See also:
 
+1.  **[Userarticles](https://github.com/webitproff/cot-userarticles) for CMF Cotonti**
+   The plugin for CMF Cotonti displays a list of users with the number of their articles and a detailed list of articles for each user.
+
+3. **[Export to Excel via PhpSpreadsheet](https://github.com/webitproff/cot-excel_export) for CMF Cotonti**
+   Exporting Articles to Excel from the Database in Cotonti via PhpSpreadsheet.Composer is not required for installation.
+
+5. **[Import from Excel via PhpSpreadsheet](https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer) for CMF Cotonti**
+   A plugin for importing articles for all Cotonti-based websites. Composer is not required for installation.
