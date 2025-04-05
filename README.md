@@ -9,8 +9,193 @@ The CleanCot theme for CMF Cotonti. Modern Bootstrap theme on v.5.3.3 for Cotont
 &nbsp;* Author: webitproff<br />
 &nbsp;* License: MIT<br />
 
+### Site Theme File Map and Main "CleanCot" Template for Cotonti Siena
+```
+cleancot/     # Main template folder, also the site theme
+├── css/                  # Folder with template styles
+│   └── extras.css
+│   └── modalbox.css      # Primarily for system modal notifications and dialogs
+│   └── style.css         # Main file for custom styles of the CleanCot theme
+├── fontawesome/          # The Font Awesome Free 6.7.2 library includes only the minimally necessary files.
+├── img/                  # Folder with icons and images
+├── inc/                  # Folder with custom included HTML block templates
+│   └── mskin.tpl                                      # Displays the template path to the admin if it exists in Cotonti's logic variable
+│   └── two-level-drop-down-menu.tpl                   # HTML block for a custom dropdown menu with site sections
+│   └── two-level-drop-down-menu-publications.tpl      # HTML block for a custom dropdown menu with article categories
+├── js/                   # Folder with template JavaScript
+│   └── js.js         # Main file for custom JavaScript scripts of the CleanCot theme
+│   └── lightbox.js   # Lightbox for carousel and image gallery when using the 'files' module
+├── modules/          # Folder with templates for Cotonti modules
+│   └── files/    # Folder with templates for the 'files' module file manager (https://github.com/Alex300/files)
+│      └── files.admin.allpfs.tpl                 # Template (description in progress)
+│      └── files.admin.main.tpl                   # Template (description in progress)
+│      └── files.admin.tpl                        # Template (description in progress)
+│      └── files.avatarbox.tpl                    # Template (description in progress)
+│      └── files.bootstrap-carousel_gallery.tpl   # Template (description in progress)
+│      └── files.display.tpl                      # Template (description in progress)
+│      └── files.downloads.mytemplate.tpl         # Template (description in progress)
+│      └── files.downloads.tpl                    # Template (description in progress)
+│      └── files.filebox.tpl                      # Template (description in progress)
+│      └── files.files.tpl                        # Template (description in progress)
+│      └── files.gallery.tpl                      # Template (description in progress)
+│      └── files.image.tpl                        # Template (description in progress)
+│      └── files.link.bootstrap.tpl               # Template (description in progress)
+│      └── files.link.tpl                         # Template (description in progress)
+│      └── files.pfs.folder.edit.tpl              # Template (description in progress)
+│      └── files.pfs.tpl                          # Template (description in progress)
+│      └── files.templates.tpl                    # Template (description in progress)
+│      └── files.tpl                              # Template (description in progress)
+│      └── files.widget.tpl                       # Template (description in progress)
+│   └── forums/   # Folder with templates for the "Forums" module - 'forums'
+│      └── forums.editpost.tpl           # Template for editing forum topics and their posts
+│      └── forums.newtopic.tpl           # Template with a form for creating a new forum topic
+│      └── forums.posts.tpl              # Template for the page of a published forum topic and its posts
+│      └── forums.sections.tpl           # Template for the page of main forum sections (categories)
+│      └── forums.topics.tpl             # Template for the list of topics in a forum section, including subsections if they exist
+│   └── page/     # Folder with templates for the "Pages" module - 'page'
+│      └── page.add.tpl                  # Template with a form for creating a new article or news item
+│      └── page.edit.tpl                 # Template with a form for editing an article or news item
+│      └── page.enum.tpl                 # Template for displaying a list of articles by parameters in various site sections
+│      └── page.list.tpl                 # Template for the list of articles in a category, including subcategories if they exist
+│      └── page.list.unvalidated.tpl     # Template for the list of articles in the "Pending Approval" category (requires creating a category with the code 'unvalidated')
+│      └── page.news.tpl                 # Template for the full article or news page for the category with the code 'news' (extended version)
+│      └── page.tpl                      # Template for the full article or news page (simplified version for all categories)
+│   └── pfs/     # Folder with templates for the "PFS" module - 'pfs' ("My Files" - Cotonti's built-in file manager)
+│      └── pfs.admin.allpfs.tpl          # Template for "All Users’ My Files Sections" view in the admin panel (to be moved to the site admin theme)
+│      └── pfs.admin.tpl                 # Template for the list of system (server) settings for the module (to be moved to the site admin theme)
+│      └── pfs.edit.tpl                  # Template for viewing and editing information about an uploaded file: description, moving to another folder
+│      └── pfs.editfolder.tpl            # Template for editing a folder with files
+│      └── pfs.tpl                       # Template for the main interface of the "PFS" module file manager: creating folders, uploading files, inserting into content, etc.
+│   └── pm/     # Folder with templates for the "PM" module - 'pm' ("Private Messages" - internal user messaging on the Cotonti site)
+│      └── pm.list.tpl                   # Template for the list of all messages with filters: Inbox, Sent, etc.
+│      └── pm.message.tpl                # Template for the message page with a reply form and conversation history view
+│      └── pm.popUpNotification.tpl      # Template for notification of a new message
+│      └── pm.send.tpl                   # Template for the page to send a new message to a user or users of the site
+│   └── polls/     # Folder with templates for the "Polls" module - 'polls' (Placement and management of polls on the site and/or forum)
+│      └── polls.index.tpl               # Template for user polls on the site’s main page
+│      └── polls.tpl                     # Template for the list of all polls on the site
+│   └── users/     # Folder with templates for the "Users" module - 'users' (Registration and user management, profiles, and user pages)
+│      └── users.details.tpl             # Template for the publicly accessible page of a specific website user, displaying detailed public information and profile data they’ve filled in
+│      └── users.edit.tpl                # Template for editing a specific user’s data by an admin with site administrator rights: changing groups, blocking, deletion, etc.
+│      └── users.passrecover.tpl         # Template for the page with a form to recover a lost user password
+│      └── users.profile.tpl             # Template for the page with a form for users to edit their personal profile data and configure available settings
+│      └── users.register.tpl            # Template for the registration page for new site users
+│      └── users.tpl                     # Template for the page listing site users with various filters
+├── plugins/          # Folder with templates for Cotonti plugins
+│   └── comments/     # Folder with templates for the "Comments" plugin - comments for articles, polls, etc.
+│      └── comments.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│   └── contact/     # Folder with templates for the "Contact" plugin - site contact and feedback form
+│      └── contact.tpl            # Template with a feedback form for administrators, also displays a map and contacts if filled in the admin panel
+│   └── i18n/     # Folder with templates for the "Content Internationalization" plugin - multilocalization of "Pages" module content
+│      └── i18n.locales.tpl       # Template for displaying a list of available locales (languages) for content localization in Cotonti CMF
+│      └── i18n.page.tpl          # Template for creating and editing localized page (article) content
+│      └── i18n.structure.tpl     # Template for managing, filling, and editing localized structure categories (names in another language)
+│   └── indexnews/     # Folder with templates for the plugin listing articles on the main page from a selected category
+│      └── indexnews.tpl          # Template on the site’s main page displaying a list of articles from the category specified in the plugin settings
+│   └── recentitems/     # Folder with templates for the plugin of recently updated content
+│      └── recentitems.forums.index.tpl          # Template on the site’s main page displaying a list of updated forum topics
+│      └── recentitems.forums.tpl                # Template displaying a list of updated forum topics on the plugin page
+│      └── recentitems.pages.index.tpl           # Template on the site’s main page displaying a list of recently updated articles
+│      └── recentitems.pages.tpl                 # Template displaying a list of recent articles on the plugin page
+│      └── recentitems.tpl                       # Template for the plugin page with updated site content
+│   └── search/     # Folder with templates for the "Search" plugin
+│      └── search.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│   └── statistics/     # Folder with templates for the "Statistics" plugin
+│      └── statistics.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│   └── tags/     # Folder with templates for the "Tags in Content" plugin
+│      └── tags.tpl          # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│   └── userarticles/     # Folder with templates for the "User Articles" plugin (https://github.com/webitproff/cot-userarticles)
+│      └── userarticles.details.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│      └── userarticles.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│   └── whosonline/     # Folder with templates for the "Who’s Online" plugin - comments for articles, polls, etc.
+│      └── whosonline.tpl           # Template listing authorized users and guests on the site, with "who and where" parameters
+├── cleancot.en.lang.php    # English localization for the CleanCot theme, defines interface translations and overrides site settings like title and description
+├── cleancot.ru.lang.php    # Russian localization for the CleanCot theme, defines interface translations and overrides site settings like title and description
+├── cleancot.php            # Main file of the CleanCot theme in Cotonti CMF, registers the theme, includes resources from cleancot.resources.php, and contains user-specific functions within the theme
+├── cleancot.rc.php         # Centrally connects CSS and JavaScript resources like Bootstrap 5.3.3, Font Awesome 6.7.2, and custom theme styles/scripts via Cotonti’s Resources system
+├── cleancot.resources.php  # Designed to override standard Cotonti HTML templates (string resources) such as pagination elements and input forms to match the Bootstrap 5.3.3 style used in the theme
+├── error.tpl               # Handles the display of critical errors and notifications in Cotonti
+├── footer.tpl              # Used to render the site’s footer, containing static content, navigation, copyright, and Cotonti tags
+├── header.tpl              # Used to form the site’s header, including metadata, CSS/JS inclusion, main navigation menu, and user account section
+├── index.tpl               # Used to form the site’s main page, displaying main content (news) and sidebar (admin block, polls, tags, online users) with Cotonti CMF plugin and module integration
+├── login.tpl               # Handles the login page with an authorization form and maintenance notification
+├── message.tpl             # Displays system messages and modal dialogs for operation/action confirmations
+├── plugin.tpl              # Used to render pages generated by plugins (extensions) not tied to specific modules like page or forums; see more at https://github.com/Cotonti/Cotonti/blob/master/system/plugin.php
+├── popup.tpl               # Used to form the content of pop-up windows triggered via JavaScript or AJAX in Cotonti
+├── warnings.tpl            # Used to display three types of system notifications — errors (ERROR), warnings (WARNING), and successful actions (DONE)
+```
+<h2>Installation Instructions for the Template on an Active Site</h2>
+
+<h3>Pre-Installation Requirements:</h3>
+
+<p>1. Cotonti Siena version 0.9.26 beta (outdated tags and obsolete methods for checking function conditions and variables are absent in the template)<br />
+2. The "CleanCot" template fully supports all built-in extensions, but for more advanced functionality, it integrates support for the 'files' module (https://github.com/Alex300/files). The requirement is that the "PFS" module and "userimages" plugin must be uninstalled from the system if you plan to install the 'files' module. However, if the functionality of these two extensions ("PFS" and "userimages") is sufficient for you, there’s no need to install the 'files' module.</p>
+
+<h3><br />
+Installation Steps</h3>
+
+<p><strong>1. Create a Full Backup</strong> of your active site and save it to your computer.</p>
+
+<p><strong>2. Download the Latest Version of the "CleanCot" Template</strong> from the public repository https://github.com/webitproff/cot-CleanCot</p>
+
+<p><strong>3. Copy the Template</strong><br />
+<strong>3.1 Unzip the archive and open the cot-CleanCot-master folder.</strong><br />
+Copy the "cleancot" folder to the themes/ directory of your Cotonti site. The path should look like this:<br />
+/path/to/cotonti/themes/cleancot/<br />
+<strong>3.2 Ensure all files and subfolders are intact and no files were lost</strong> during the upload to the hosting/server.<br />
+It’s best to use "FileZilla Client" or a similar remote file manager.</p>
+
+<p><strong>4. Configure Settings</strong><br />
+Open the datas/config.php file in the root of your Cotonti site (e.g., /path/to/cotonti/datas/config.php).<br />
+Find the line with the theme setting:</p>
+
+<pre class="brush:php;">
+$cfg['defaulttheme'] = 'nemesis'; // or whatever you have instead of "nemesis"</pre>
+
+<p>Replace it with</p>
+
+<pre class="brush:php;">
+$cfg['defaulttheme'] = 'cleancot';</pre>
+
+<p>Save the changes to the config.php file.</p>
+
+<p><strong>5. Activate the Template</strong><br />
+Go to the admin panel: Site Management / Configuration / Themes<br />
+5.1. In the first line: "Force default theme installation for all users" - Set to "Yes".<br />
+5.2. In the second line: "Link to the main page in the navigation chain" - Set to "Yes".<br />
+5.3. In the third line: "Separator" - Leave the field completely empty.<br />
+Adjust other options as desired.<br />
+Save the changes.</p>
+
+<p><strong>6. Extra Fields (Optional, at your discretion)</strong><br />
+<strong>6.1. Main Image for Articles in the "news" Category</strong><br />
+6.1.1. Go to: Site Management / Other / Extra Fields / Table cot_pages - Pages Module, and at the bottom of the page, use the form to add a new field:<br />
+* "cot_" is the default database table prefix in Cotonti; yours may differ.<br />
+ - Field Name: "link_main_image" (enter without quotes);<br />
+ - Field Description (_TITLE): "Main Image Link";<br />
+ - Field Type: "input"<br />
+Leave the rest unchanged and click "Add"<br />
+<strong>6.2. YouTube Video in Forum Topics</strong><br />
+6.2.1 Go to: Site Management / Other / Extra Fields / Table cot_forum_topics - Forums Module<br />
+Do not confuse it with "cot_forum_posts" - that’s the database table for posts and messages in a topic.<br />
+At the bottom of the page, use the form to add a new custom field (extra field):<br />
+ - Field Name: "xtr_fld_youtube" (enter without quotes);<br />
+ - Field Description (_TITLE): "YouTube Video";<br />
+ - Field Type: "input".<br />
+Leave the rest unchanged and click "Add".</p>
+
+<p><strong>7. Site Header Menu</strong><br />
+<strong>7.1. "Articles and Blogs"</strong><br />
+HTML block for the custom dropdown menu "Article Categories" in the file - themes/cleancot/inc/two-level-drop-down-menu-publications.tpl<br />
+Everything is filled with working examples; follow the current logic and edit to suit your needs.<br />
+<strong>7.2 "More Sections"</strong><br />
+HTML block in the file themes/cleancot/inc/two-level-drop-down-menu.tpl<br />
+Everything is filled with working examples and comments; read the comments in the code, follow the current logic, and edit to suit your needs.</p>
 
 
+*********
+# Русский
+*********
 ### Карта файлов темы сайта и основного шаблона "CleanCot" для Cotonti Siena
 ```
 cleancot/     # Папка основного шаблона, она же тема сайта 
