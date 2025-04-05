@@ -99,14 +99,14 @@ cleancot/     # Main template folder, also the site theme
 │      └── recentitems.pages.tpl                 # Template displaying a list of recent articles on the plugin page
 │      └── recentitems.tpl                       # Template for the plugin page with updated site content
 │   └── search/     # Folder with templates for the "Search" plugin
-│      └── search.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
-│   └── statistics/     # Folder with templates for the "Statistics" plugin
-│      └── statistics.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
-│   └── tags/     # Folder with templates for the "Tags in Content" plugin
-│      └── tags.tpl          # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│      └── search.tpl           # Template with a form and filters for searching site content by keyword
+│   └── statistics/      # Folder with templates for the "Statistics" plugin
+│      └── statistics.tpl           # Template for a simple site statistics page
+│   └── tags/             # Folder with templates for the "Tags in Content" plugin
+│      └── tags.tpl                           # Template with a form for searching content by tags
 │   └── userarticles/     # Folder with templates for the "User Articles" plugin (https://github.com/webitproff/cot-userarticles)
-│      └── userarticles.details.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
-│      └── userarticles.tpl           # Template with a form for creating and displaying a list of comments for an object (article, poll, etc.)
+│      └── userarticles.details.tpl           # Template for the list of articles published by this user
+│      └── userarticles.tpl                   # Template for the page listing users with the number of published articles
 │   └── whosonline/     # Folder with templates for the "Who’s Online" plugin - comments for articles, polls, etc.
 │      └── whosonline.tpl           # Template listing authorized users and guests on the site, with "who and where" parameters
 ├── cleancot.en.lang.php    # English localization for the CleanCot theme, defines interface translations and overrides site settings like title and description
@@ -286,15 +286,15 @@ cleancot/     # Папка основного шаблона, она же тем
 		│      └── recentitems.pages.tpl                 # шаблон выводит список последних статей на странице плагина
 		│      └── recentitems.tpl                       # шаблон страницы плагина с обновленным контентом сайта 
 		│   └── search/     # Папка c шаблонами для плагина "Поиска" 
-		│      └── search.tpl           # шаблон с формой создания и отображения списка комментариев к объекту (статья, опрос и т.д.) 
-		│   └── statistics/     # Папка c шаблонами для плагина "Статистики" 
-		│      └── statistics.tpl           # шаблон с формой создания и отображения списка комментариев к объекту (статья, опрос и т.д.) 
-		│   └── tags/     # Папка c шаблонами для плагина "Теги в контенте" 
-		│      └── tags.tpl          # шаблон с формой создания и отображения списка комментариев к объекту (статья, опрос и т.д.) 	
+		│      └── search.tpl           # шаблон с формой и фильтрами для поиска контента на сайте по ключевому слову
+		│   └── statistics/      # Папка c шаблонами для плагина "Статистики" 
+		│      └── statistics.tpl           # шаблон страницы простейшей статистики по сайту
+		│   └── tags/             # Папка c шаблонами для плагина "Теги в контенте" 
+		│      └── tags.tpl                           # шаблон с формой поиска контента по тегам
 		│   └── userarticles/     # Папка c шаблонами для плагина "Статьи пользователей"(https://github.com/webitproff/cot-userarticles) 
-		│      └── userarticles.details.tpl           # шаблон с формой создания и отображения списка комментариев к объекту (статья, опрос и т.д.) 
-		│      └── userarticles.tpl           # шаблон с формой создания и отображения списка комментариев к объекту (статья, опрос и т.д.) 
-		│   └── whosonline/     # Папка c шаблонами для плагина "кто онлайн" - комментариев статей, опросов и т.д.
+		│      └── userarticles.details.tpl           # шаблон списка статей, которые опубликовал этот пользователь
+		│      └── userarticles.tpl                   # шаблон страницы списка пользователей с количеством опубликованных статей.
+		│   └── whosonline/     # Папка c шаблонами для плагина "кто онлайн" 
 		│      └── whosonline.tpl           # шаблон списка авторизованных пользователей и гостей на сайте, с параметром "кто и где". 
 		├── cleancot.en.lang.php    # английская локализация для темы CleanCot, определяет переводы для интерфейса и переопределяет настройки сайта, такие как название и описание. 	
 		├── cleancot.ru.lang.php    # русская локализация для темы CleanCot, определяет переводы для интерфейса и переопределяет настройки сайта, такие как название и описание.
