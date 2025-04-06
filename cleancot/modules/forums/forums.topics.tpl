@@ -23,9 +23,11 @@
       <ol class="breadcrumb mb-0 flex-nowrap overflow-x-auto"> <!-- Список крошек -->
         {FORUMS_TOPICS_PAGETITLE} <!-- Заголовок страницы в виде крошек -->
       </ol> <!-- Закрывает крошки -->
+	  <!-- IF {PHP|cot_module_active('rss')} -->
       <a href="{FORUMS_TOPICS_SECTION_RSS}" class="ms-2" title="RSS" data-bs-toggle="tooltip" data-bs-placement="top"> <!-- Ссылка на RSS -->
         <i class="fa-solid fa-rss"></i> <!-- Иконка RSS -->
       </a> <!-- Закрывает ссылку -->
+	  <!-- ENDIF -->
     </nav> <!-- Закрывает навигацию -->
   </div> <!-- Закрывает контейнер крошек -->
 </div> <!-- Закрывает панель крошек -->
