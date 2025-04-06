@@ -44,12 +44,12 @@
         <ol class="breadcrumb mb-0 flex-nowrap overflow-x-auto"> <!-- Список хлебных крошек без нижнего отступа, с горизонтальной прокруткой -->
           {FORUMS_POSTS_BREADCRUMBS} <!-- Выводит хлебные крошки для текущей страницы -->
         </ol> <!-- Закрывает список хлебных крошек -->
-		</div>
-		<!-- IF {PHP|cot_module_active('rss')} -->
+	</div>
+	<!-- IF {PHP|cot_module_active('rss')} -->
         <a href="{FORUMS_POSTS_RSS}" class="ms-2" title="RSS" data-bs-toggle="tooltip" data-bs-placement="top"> <!-- Ссылка на RSS с отступом слева и тултипом -->
           <i class="fa-solid fa-rss"></i> <!-- Иконка RSS из Font Awesome -->
         </a> <!-- Закрывает ссылку на RSS -->
-		<!-- ENDIF -->
+	<!-- ENDIF -->
       </nav> <!-- Закрывает навигацию -->
     </div> <!-- Закрывает внутренний контейнер хлебных крошек -->
   </div> <!-- Закрывает панель хлебных крошек -->
