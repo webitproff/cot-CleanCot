@@ -8,7 +8,7 @@
  * Theme: CleanCot  
  * Version: 1.0.2 
  * Created: 07 March 2025 
- * Updated: 04 April 2025 
+ * Updated: 06 April 2025 
  * Author: webitproff 
  * Source: https://github.com/webitproff/cot-CleanCot 
  * Demo:  https://cleancot.previewit.work
@@ -30,9 +30,8 @@
             </nav>
         </div>
     </div>
-
-    <!-- Контейнер средней ширины с flex-выравниванием и нижним отступом в Cotonti -->
-    <div class="container-xl min-height-50vh">
+<div class="py-4">
+  <div class="container-xl min-height-50vh">
         <!-- Подключение шаблона предупреждений из текущей темы Cotonti -->
         {FILE "{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/warnings.tpl"}
         <!-- Сетка Bootstrap для размещения контента -->
@@ -206,7 +205,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <!-- Условие Cotonti: подключение дополнительного шаблона для администраторов -->
     <!-- IF {PHP.usr.maingrp} == 5 AND {PHP.mskin} -->
         <!-- Подключение шаблона mskin.tpl для группы администраторов из темы Cotonti -->
