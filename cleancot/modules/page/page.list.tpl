@@ -32,7 +32,7 @@
     </div>
 
     <!-- Контейнер средней ширины с flex-выравниванием и нижним отступом в Cotonti -->
-    <div class="container-md d-flex flex-column justify-content-center pb-5">
+    <div class="container-xl min-height-50vh">
         <!-- Подключение шаблона предупреждений из текущей темы Cotonti -->
         {FILE "{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/warnings.tpl"}
         <!-- Сетка Bootstrap для размещения контента -->
