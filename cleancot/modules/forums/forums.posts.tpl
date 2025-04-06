@@ -22,16 +22,34 @@
     <script src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/js/lightbox.js"></script> <!-- Подключает lightbox.js для работы с изображениями из модуля 'files' -->
   <!-- ENDIF --> <!-- Закрывает условие подключения скрипта -->
   
+		<style>
+		  .breadcrumb-wrapper {
+			max-width: calc(100% - 40px); /* Учитываем ширину RSS-иконки и отступ */
+			overflow: hidden; /* Скрываем лишнее за пределами контейнера */
+		  }
+		  .breadcrumb {
+			white-space: nowrap;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+		  }
+			.breadcrumb-wrapper::-webkit-scrollbar {
+			height: 6px;
+		  }
+		</style> 
   <!-- Панель хлебных крошек -->
   <div class="bg-light py-2 border-bottom border-secondary"> <!-- Контейнер хлебных крошек с светлым фоном и нижней границей -->
     <div class="container py-2"> <!-- Внутренний контейнер с вертикальными отступами -->
       <nav aria-label="breadcrumb" class="d-flex justify-content-between align-items-center"> <!-- Навигация с flex-выравниванием по краям и центру -->
+	  <div class="breadcrumb-wrapper">
         <ol class="breadcrumb mb-0 flex-nowrap overflow-x-auto"> <!-- Список хлебных крошек без нижнего отступа, с горизонтальной прокруткой -->
           {FORUMS_POSTS_BREADCRUMBS} <!-- Выводит хлебные крошки для текущей страницы -->
         </ol> <!-- Закрывает список хлебных крошек -->
+		</div>
+		<!-- IF {PHP|cot_module_active('rss')} -->
         <a href="{FORUMS_POSTS_RSS}" class="ms-2" title="RSS" data-bs-toggle="tooltip" data-bs-placement="top"> <!-- Ссылка на RSS с отступом слева и тултипом -->
           <i class="fa-solid fa-rss"></i> <!-- Иконка RSS из Font Awesome -->
         </a> <!-- Закрывает ссылку на RSS -->
+		<!-- ENDIF -->
       </nav> <!-- Закрывает навигацию -->
     </div> <!-- Закрывает внутренний контейнер хлебных крошек -->
   </div> <!-- Закрывает панель хлебных крошек -->
