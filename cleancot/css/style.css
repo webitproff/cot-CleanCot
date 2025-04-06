@@ -483,7 +483,7 @@ p img, p svg { /* Целевые элементы: <img> и <svg> внутри <
 	vertical-align: middle; /* Выравнивание по вертикали относительно строки текста */
 	max-width: 100%; /* Максимальная ширина не больше контейнера */
 	margin-bottom: 15px;
-	height: auto; /* Высота пропорциональна ширине */
+	height: auto!important; /* Высота пропорциональна ширине */
 	display: inline-block; /* Делает элемент блочно-строчным для корректного выравнивания */
 	box-sizing: border-box;
 	border-radius: 5px;
