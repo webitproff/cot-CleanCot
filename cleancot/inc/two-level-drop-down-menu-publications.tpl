@@ -7,7 +7,7 @@
                             </a>
                             <!-- Выпадающее меню Bootstrap с привязкой к ID элемента -->
                             <ul class="dropdown-menu" aria-labelledby="extraDropdown">
-
+				<!-- IF {PHP.structure.page.news} -->
                                 <!-- Условие Cotonti: проверка существования пути к категории "news" в структуре -->
                                 <!-- IF {PHP.structure.page.news.path} -->
                                     <!-- Элемент списка для категории "Новости" -->
@@ -20,7 +20,9 @@
                                     </li>
                                 <!-- Конец условия проверки пути к категории "news" в Cotonti -->
                                 <!-- ENDIF -->
-
+				<!-- ENDIF -->
+								
+				<!-- IF {PHP.structure.page.articles} -->
                                 <!-- Условие Cotonti: проверка существования пути к категории "articles" в структуре -->
                                 <!-- IF {PHP.structure.page.articles.path} -->
                                     <!-- Элемент списка для категории "Статьи" -->
@@ -33,7 +35,9 @@
                                     </li>
                                 <!-- Конец условия проверки пути к категории "articles" в Cotonti -->
                                 <!-- ENDIF -->
-
+				<!-- ENDIF -->
+								
+				<!-- IF {PHP.structure.page.events} -->	
                                 <!-- Условие Cotonti: проверка существования пути к категории "events" в структуре -->
                                 <!-- IF {PHP.structure.page.events.path} -->
                                     <!-- Элемент списка для категории "События" -->
@@ -46,7 +50,9 @@
                                     </li>
                                 <!-- Конец условия проверки пути к категории "events" в Cotonti -->
                                 <!-- ENDIF -->
-
+				<!-- ENDIF -->
+								
+				<!-- IF {PHP.structure.page.blogs} -->	
                                 <!-- Условие Cotonti: проверка существования пути к категории "blogs" в структуре -->
                                 <!-- IF {PHP.structure.page.blogs.path} -->
                                     <!-- Элемент списка с подменю для категории "Блоги" -->
@@ -58,7 +64,7 @@
                                         </span>
                                         <!-- Открываем подменю Bootstrap с привязкой к ID элемента -->
                                         <ul class="dropdown-menu submenu" aria-labelledby="optionsSubmenu">
-										
+						<!-- IF {PHP.structure.page.blog-travel} -->
                                             <!-- Условие Cotonti: проверка существования пути к подкатегории "blog-travel" -->
                                             <!-- IF {PHP.structure.page.blog-travel.path} -->
                                                 <!-- Элемент списка для подкатегории "Путешествия" -->
@@ -68,7 +74,8 @@
                                                 </li>
                                             <!-- Конец условия проверки пути к "blog-travel" в Cotonti -->
                                             <!-- ENDIF -->
-
+					<!-- ENDIF -->
+					<!-- IF {PHP.structure.page.blog-reviews} -->
                                             <!-- Условие Cotonti: проверка существования пути к подкатегории "blog-reviews" -->
                                             <!-- IF {PHP.structure.page.blog-reviews.path} -->
                                                 <!-- Элемент списка для подкатегории "Обзоры" -->
@@ -78,7 +85,8 @@
                                                 </li>
                                             <!-- Конец условия проверки пути к "blog-reviews" в Cotonti -->
                                             <!-- ENDIF -->
-											
+					<!-- ENDIF -->
+					<!-- IF {PHP.structure.page.blog-games} -->
                                             <!-- Условие Cotonti: проверка существования пути к подкатегории "blog-games" -->
                                             <!-- IF {PHP.structure.page.blog-games.path} -->
                                                 <!-- Элемент списка для подкатегории "Обзоры" -->
@@ -87,7 +95,8 @@
                                                     <a class="dropdown-item" href="{PHP|cot_url('page','c=blog-games')}"><i class="fa-solid fa-gamepad me-1"></i>{PHP.L.CleanCot_cat_title_blog_games}</a>
                                                 </li>
                                             <!-- Конец условия проверки пути к "blog-reviews" в Cotonti -->
-                                            <!-- ENDIF -->	
+                                            <!-- ENDIF -->
+					<!-- ENDIF -->											
 											
 										<!-- Закрываем подменю Bootstrap с привязкой к ID элемента -->	
                                         </ul>
@@ -95,6 +104,7 @@
                                     </li>
                                 <!-- Конец условия проверки пути к категории "blogs" в Cotonti -->
                                 <!-- ENDIF -->
+				<!-- ENDIF -->
 
                             </ul>
                         </li>
