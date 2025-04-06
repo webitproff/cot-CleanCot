@@ -7,7 +7,7 @@
  * Theme: CleanCot  
  * Version: 1.0.2 
  * Created: 07 March 2025 
- * Updated: 01 April 2025 
+ * Updated: 06 April 2025 
  * Author: webitproff 
  * Source: https://github.com/webitproff/cot-CleanCot 
  * Demo:  https://cleancot.previewit.work
@@ -100,14 +100,19 @@
                         <!-- BEGIN: USER --> <!-- Условие для авторизованных пользователей -->
                             <div> <!-- Контейнер для кнопки -->
                                 <button class="btn text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#accountUserOffcanvas" aria-controls="accountOffcanvas" title="{PHP.L.Account}"> <!-- Кнопка открытия правого Offcanvas -->
+									<!-- IF {PHP|cot_module_active('files')} AND !{PHP|cot_plugin_active('userimages')} --> <!-- Условие: активен модуль files, но не активен userimages -->
+										<!-- IF {PHP.usr.profile.user_avatar} --> <!-- Условие: у пользователя есть аватар -->
+											<img class="rounded-circle me-2" src="{PHP.usr.profile.user_avatar|cot_filesUserAvatarUrl($this)}" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Аватар через модуль files -->
+										<!-- ELSE --> <!-- Условие: аватара нет -->
+											<img class="rounded-circle me-2" src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/user-noavatar.webp" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Дефолтный аватар -->
+										<!-- ENDIF --> <!-- Закрывает условие наличия аватара -->
+									<!-- ENDIF --> <!-- Закрывает условие модуля files -->
                                     <!-- IF {PHP|cot_plugin_active('userimages')} AND !{PHP|cot_module_active('files')} --> <!-- Условие: активен плагин userimages, но не активен модуль files -->
                                         <!-- IF {PHP.usr.profile.user_avatar} --> <!-- Условие: у пользователя есть аватар -->
                                             <img class="rounded-circle me-2" src="{PHP.usr.profile.user_avatar}" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Аватар пользователя -->
                                         <!-- ELSE --> <!-- Условие: аватара нет -->
                                             <img class="rounded-circle me-2" src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/user-noavatar.webp" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Дефолтный аватар -->
                                         <!-- ENDIF --> <!-- Закрывает условие наличия аватара -->
-                                    <!-- ELSE --> <!-- Условие: другие случаи обработки аватара -->
-                                        <img class="rounded-circle me-2" src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/user-noavatar.webp" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Дефолтный аватар -->
                                     <!-- ENDIF --> <!-- Закрывает условие проверки модулей -->
                                 </button> <!-- Закрывает кнопку -->
                             </div> <!-- Закрывает контейнер кнопки -->
@@ -133,8 +138,6 @@
                                                 <!-- ELSE --> <!-- Условие: аватара нет -->
                                                     <img class="rounded-circle me-2" src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/user-noavatar.webp" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Дефолтный аватар -->
                                                 <!-- ENDIF --> <!-- Закрывает условие наличия аватара -->
-                                            <!-- ELSE --> <!-- Условие: другие случаи -->
-                                                <img class="rounded-circle me-2" src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/user-noavatar.webp" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Дефолтный аватар -->
                                             <!-- ENDIF --> <!-- Закрывает условие проверки модулей -->
                                             <span>{PHP.usr.name}</span> <!-- Имя пользователя -->
                                         </li> <!-- Закрывает элемент списка с аватаром -->
@@ -232,7 +235,7 @@
                                 <!-- ENDIF --> <!-- Закрывает условие userarticles -->
                                 <!-- IF {PHP|cot_plugin_active('recentitems')} --> <!-- Условие: активен плагин recentitems -->
                                     <li class="nav-item"> <!-- Элемент списка -->
-                                        <a class="nav-link" href="{PHP|cot_url('plug', 'e=recentitems')}" title="{PHP.L.recentitems_title}"> <!-- Ссылка на последние элементы -->
+                                        <a class="nav-link" href="{PHP.modeUrl|cot_url('recentitems','days=1m&$this')}" title="{PHP.L.recentitems_title}"> <!-- Ссылка на последние элементы -->
                                             <i class="fa-regular fa-calendar-check"></i> {PHP.L.recentitems_title} <!-- Иконка и текст "Недавнее" -->
                                         </a> <!-- Закрывает ссылку -->
                                     </li> <!-- Закрывает элемент списка -->
