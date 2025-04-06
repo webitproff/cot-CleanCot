@@ -23,9 +23,11 @@
       <ol class="breadcrumb mb-0 flex-nowrap overflow-x-auto"> <!-- Список хлебных крошек без нижнего отступа -->
         {FORUMS_SECTIONS_PAGETITLE} <!-- Вывод заголовка страницы в виде крошек -->
       </ol> <!-- Закрывает список крошек -->
-      <a href="{FORUMS_POSTS_RSS}" class="ms-2" title="RSS" data-bs-toggle="tooltip" data-bs-placement="top"> <!-- Ссылка на RSS с тултипом -->
-        <i class="fa-solid fa-rss"></i> <!-- Иконка RSS -->
-      </a> <!-- Закрывает ссылку на RSS -->
+	<!-- IF {PHP|cot_module_active('rss')} -->
+        <a href="{FORUMS_POSTS_RSS}" class="ms-2" title="RSS" data-bs-toggle="tooltip" data-bs-placement="top"> <!-- Ссылка на RSS с отступом слева и тултипом -->
+          <i class="fa-solid fa-rss"></i> <!-- Иконка RSS из Font Awesome -->
+        </a> <!-- Закрывает ссылку на RSS -->
+	<!-- ENDIF -->
     </nav> <!-- Закрывает навигацию -->
   </div> <!-- Закрывает контейнер крошек -->
 </div> <!-- Закрывает панель хлебных крошек -->
