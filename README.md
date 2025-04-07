@@ -191,7 +191,7 @@ Everything is filled with working examples; follow the current logic and edit to
 <strong>7.2 "More Sections"</strong><br />
 HTML block in the file themes/cleancot/inc/two-level-drop-down-menu.tpl<br />
 Everything is filled with working examples and comments; read the comments in the code, follow the current logic, and edit to suit your needs.</p>
-
+<p><strong>Are there any errors in the code?</strong> - Of course there are! They are not there only where no one does anything. If you find an error, write to <a href="https://abuyfile.com/ru/forums/cotonti/original/skins/cleancot"><strong>support</strong></a> </p>
 
 *********
 # Русский
@@ -381,30 +381,9 @@ HTML-блок кастомного dropdown меню &quot;Категории с
 HTML-блок в файле themes/cleancot/inc/two-level-drop-down-menu.tpl<br />
 Все заполненно с рабочими примерами и комментариями, читайте комментарии в коде, придерживайтесь текущей локики и редактируйте под себя.</p>
 
-<p>&nbsp;</p>
-<p><strong>8. "Новое на сайте".</strong><br />
-что бы в меню сайта во всех разделах было видно "Новое на сайте" оно же "Recent Items" нужно в корне плагина 'recentitems' по пути <code>/plugins/recentitems</code> создать файл:
+<p><strong>Есть ли ошибки в коде?</strong> - конечно есть! их нет только там где никто ничего не делает. нашли ошибку - пишите в <a href="https://abuyfile.com/ru/forums/cotonti/original/skins/cleancot"><strong>support</strong></a> </p>
 
-recentitems.global.php
 
-и добавить код:
-
-```
-<?php
-/**
- * [BEGIN_COT_EXT]
- * Hooks=global
- * [END_COT_EXT]
- */
-
-defined('COT_CODE') or die('Wrong URL.');
-
-require_once cot_langfile('recentitems', 'plug');
-
-```
-
-затем зайти: <strong>Управление сайтом / Расширения / Новое на сайте</strong>
-и нажать кнопку "Обновить"
 
 
 
