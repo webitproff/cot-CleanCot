@@ -31,6 +31,7 @@ $L['Account'] = 'Аккаунт';
 $L['CleanCot_Additional_links'] = 'Еще разделы';
 $L['CleanCot_Publications'] = 'Статьи и блоги';
 $L['CleanCot_tags_All'] = 'Все теги';
+$L['recentitems_title'] = 'Новое на сайте';
 /**
  * Header.tpl strings
  */
