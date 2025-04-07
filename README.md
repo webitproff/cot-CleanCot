@@ -382,6 +382,31 @@ HTML-блок в файле themes/cleancot/inc/two-level-drop-down-menu.tpl<br 
 Все заполненно с рабочими примерами и комментариями, читайте комментарии в коде, придерживайтесь текущей локики и редактируйте под себя.</p>
 
 <p>&nbsp;</p>
+<p><strong>8. "Новое на сайте".</strong><br />
+что бы в меню сайта во всех разделах было видно "Новое на сайте" оно же "Recent Items" нужно в корне плагина 'recentitems' по пути <code>/plugins/recentitems</code> создать файл:
+
+recentitems.global.php
+
+и добавить код:
+
+```
+<?php
+/**
+ * [BEGIN_COT_EXT]
+ * Hooks=global
+ * [END_COT_EXT]
+ */
+
+defined('COT_CODE') or die('Wrong URL.');
+
+require_once cot_langfile('recentitems', 'plug');
+
+```
+
+затем зайти: <strong>Управление сайтом / Расширения / Новое на сайте</strong>
+и нажать кнопку "Обновить"
+
+
 
 ## See also:
 
