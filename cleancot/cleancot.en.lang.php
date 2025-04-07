@@ -31,7 +31,7 @@ $L['Account'] = 'Account';
 $L['CleanCot_Additional_links'] = 'Additional links';
 $L['CleanCot_Publications'] = 'Publications';
 $L['CleanCot_tags_All'] = 'All tags';
-
+$L['recentitems_title'] = 'Recent Items';
 /**
  * Header.tpl strings
  */
