@@ -7,7 +7,7 @@
  * Theme: CleanCot  
  * Version: 1.0.2 
  * Created: 07 March 2025 
- * Updated: 01 April 2025 
+ * Updated: 08 April 2025 
  * Author: webitproff 
  * Source: https://github.com/webitproff/cot-CleanCot 
  * Demo:  https://cleancot.previewit.work
