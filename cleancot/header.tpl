@@ -215,6 +215,7 @@
                                         </a> <!-- Закрывает ссылку -->
                                     </li> <!-- Закрывает элемент списка -->
                                 <!-- ENDIF --> <!-- Закрывает условие форумов -->
+				<!-- IF {PHP.structure.page.news} -->
                                 <!-- IF {PHP.structure.page.news.path} --> <!-- Условие: существует категория новостей -->
                                     <li class="nav-item"> <!-- Элемент списка -->
                                         <a class="nav-link" href="{PHP|cot_url('page','c=news')}" title="{PHP.structure.page.news.title}"> <!-- Ссылка на новости -->
@@ -231,6 +232,7 @@
                                         </a> <!-- Закрывает ссылку -->
                                     </li> <!-- Закрывает элемент списка -->
                                 <!-- ENDIF --> <!-- Закрывает условие новостей -->
+				<!-- ENDIF -->
                                 <!-- IF {PHP|cot_plugin_active('userarticles')} --> <!-- Условие: активен плагин userarticles -->
                                     <li class="nav-item"> <!-- Элемент списка -->
                                         <a class="nav-link" href="{PHP|cot_url('plug', 'e=userarticles')}" title="{PHP.L.userarticles_title}"> <!-- Ссылка на пользовательские статьи -->
