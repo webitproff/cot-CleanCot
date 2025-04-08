@@ -7,7 +7,7 @@
  * Theme: CleanCot  
  * Version: 1.0.2 
  * Created: 07 March 2025 
- * Updated: 03 April 2025 
+ * Updated: 08 April 2025 
  * Author: webitproff 
  * Source: https://github.com/webitproff/cot-CleanCot 
  * Demo:  https://cleancot.previewit.work 
@@ -56,7 +56,9 @@
 							<!-- IF {PHP|cot_module_active('files')} --> <!-- условие проверки функцией на статус активности модуля "files" -->
                             <li class="list-group-item"><a href="{PHP|cot_url('files','m=pfs')}" class="text-primary-emphasis text-decoration-none">{PHP.L.CleanCot_Files_Title}</a></li> <!-- Ссылка на личные файлы -->
 							<!-- ENDIF -->
+							<!-- IF {PHP|cot_plugin_active('whosonline')} --> <!-- Условие Cotonti: проверка активности плагина "whosonline" -->
                             <li class="list-group-item"><a href="{PHP|cot_url('plug','e=whosonline')}" class="text-primary-emphasis text-decoration-none">{PHP.L.CleanCot_WhosOnline}</a></li> <!-- Ссылка на "Кто онлайн" с синим текстом из языкового файла темы -->
+							<!-- ENDIF -->
                         </ul> <!-- Закрытие списка -->
                     </div> <!-- Закрытие тела карточки -->
                 </div> <!-- Закрытие карточки админ-блока -->
