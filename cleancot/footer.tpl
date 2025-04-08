@@ -70,23 +70,29 @@
 			<div class="col-md-3 mb-3"> <!-- Контейнер колонки шириной 3/12 для экранов md и больше с нижним отступом -->
 			  <h5 class="fw-bold mb-3">{PHP.L.CleanCot_pub_in_sections}</h5> <!-- Заголовок 5 уровня с жирным шрифтом и нижним отступом, выводит "Публикации в разделах" из языкового файла cleancot.**.lang.php -->
 			  <ul class="list-group list-group-flush "> <!-- Список без внутренних отступов и границ между элементами -->
+				<!-- IF {PHP.structure.page.news} -->
 				<!-- IF {PHP.structure.page.news.path} --> <!-- Условие Cotonti: проверка существования пути к категории "news" -->
 				<li class="list-group-item bg-transparent"> <!-- Элемент списка с прозрачным фоном -->
 				  <a href="{PHP|cot_url('page','c=news')}" class="nav-link" title="{PHP.L.CleanCot_cat_title_news}"> <!-- Ссылка на страницу новостей с классом навигации и всплывающей подсказкой "Новости" -->
 					<i class="fa-solid fa-newspaper me-2"></i> {PHP.L.CleanCot_cat_title_news} </a> <!-- Иконка газеты с отступом справа и текст "Новости" из языкового файла cleancot.**.lang.php -->
 				</li> <!-- Закрытие элемента списка -->
+				<!-- ENDIF -->
 				<!-- ENDIF --> <!-- Конец условия для категории "news" -->
+				<!-- IF {PHP.structure.page.articles} -->
 				<!-- IF {PHP.structure.page.articles.path} --> <!-- Условие Cotonti: проверка существования пути к категории "articles" -->
 				<li class="list-group-item bg-transparent"> <!-- Элемент списка с прозрачным фоном -->
 				  <a href="{PHP|cot_url('page','c=articles')}" class="nav-link" title="{PHP.L.CleanCot_cat_title_articles}"> <!-- Ссылка на страницу статей с классом навигации и всплывающей подсказкой "Статьи" -->
 					<i class="fa-solid fa-newspaper me-2"></i> {PHP.L.CleanCot_cat_title_articles} </a> <!-- Иконка газеты с отступом справа и текст "Статьи" из языкового файла -->
 				</li> <!-- Закрытие элемента списка -->
+				<!-- ENDIF -->
 				<!-- ENDIF --> <!-- Конец условия для категории "articles" -->
+				<!-- IF {PHP.structure.page.events} -->
 				<!-- IF {PHP.structure.page.events.path} --> <!-- Условие Cotonti: проверка существования пути к категории "events" -->
 				<li class="list-group-item bg-transparent"> <!-- Элемент списка с прозрачным фоном -->
 				  <a href="{PHP|cot_url('page','c=events')}" class="nav-link" title="{PHP.L.CleanCot_cat_title_events}"> <!-- Ссылка на страницу событий с классом навигации и всплывающей подсказкой "События" -->
 					<i class="fa-solid fa-newspaper me-2"></i> {PHP.L.CleanCot_cat_title_events}</a> <!-- Иконка газеты с отступом справа и текст "События" из языкового файла -->
 				</li> <!-- Закрытие элемента списка -->
+				<!-- ENDIF -->
 				<!-- ENDIF --> <!-- Конец условия для категории "events" -->
 			  </ul> <!-- Закрытие списка -->
 			</div> <!-- Закрытие контейнера колонки -->
