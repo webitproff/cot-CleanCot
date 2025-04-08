@@ -41,6 +41,20 @@ require_once (Cot::$cfg['themes_dir'] . '/' . Cot::$cfg['defaulttheme'] . '/clea
 //    require_once cot_incfile('page', 'module');
 //}
 
+// Определяем функцию для проверки существования страницы по категории и ID
+// пример: <!-- IF {PHP|cot_page_exists_by_cat_and_id('system', 2)} --> тут ссылка <!-- ENDIF --> 
+function cot_page_exists_by_cat_and_id($cat, $id) {
+    // Подключаем глобальные переменные Cotonti: $db (объект базы данных), $db_x (префикс таблиц), $db_pages (имя таблицы страниц)
+    global $db, $db_x, $db_pages;
+    // Устанавливаем имя таблицы: если $db_pages определена, берём её, иначе составляем из префикса $db_x и 'pages' (например, 'cot_pages')
+    $table = isset($db_pages) ? $db_pages : $db_x . 'pages';
+    // Выполняем SQL-запрос: считаем количество строк в таблице $table, где page_cat = $cat и page_id = $id, используя параметры для безопасности
+    $res = $db->query("SELECT COUNT(*) FROM $table WHERE page_cat = ? AND page_id = ?", [$cat, $id])->fetchColumn();
+    // Возвращаем true, если страница найдена (count > 0), иначе false
+    return $res > 0;
+}
+
+
 function ul_transform(?string $code): string
 {
     // Проверяем, что входной параметр не null, иначе присваиваем пустую строку
