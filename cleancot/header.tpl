@@ -102,6 +102,9 @@
                         <!-- BEGIN: USER --> <!-- Условие для авторизованных пользователей -->
                             <div> <!-- Контейнер для кнопки -->
                                 <button class="btn text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#accountUserOffcanvas" aria-controls="accountOffcanvas" title="{PHP.L.Account}"> <!-- Кнопка открытия правого Offcanvas -->
+									<!-- IF !{PHP|cot_module_active('files')} AND !{PHP|cot_plugin_active('userimages')} -->
+									<i class="fa-solid fa-user fa-lg"></i>
+									<!-- ENDIF -->
 									<!-- IF {PHP|cot_module_active('files')} AND !{PHP|cot_plugin_active('userimages')} --> <!-- Условие: активен модуль files, но не активен userimages -->
 										<!-- IF {PHP.usr.profile.user_avatar} --> <!-- Условие: у пользователя есть аватар -->
 											<img class="rounded-circle me-2" src="{PHP.usr.profile.user_avatar|cot_filesUserAvatarUrl($this)}" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Аватар через модуль files -->
