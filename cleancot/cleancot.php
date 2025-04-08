@@ -42,7 +42,7 @@ require_once (Cot::$cfg['themes_dir'] . '/' . Cot::$cfg['defaulttheme'] . '/clea
 //}
 
 // Определяем функцию для проверки существования страницы по категории и ID
-// пример: <!-- IF {PHP|cot_page_exists_by_cat_and_id('system', 2)} --> тут ссылка <!-- ENDIF --> 
+// пример: <!-- IF {PHP|cot_page_exists_by_cat_and_id('system', 2)} --> тут ссылка  href="{PHP|cot_url('page', 'c=system&al=about')}" или href="{PHP|cot_url('page', 'c=system&id=2')}" <!-- ENDIF --> 
 function cot_page_exists_by_cat_and_id($cat, $id) {
     // Подключаем глобальные переменные Cotonti: $db (объект базы данных), $db_x (префикс таблиц), $db_pages (имя таблицы страниц)
     global $db, $db_x, $db_pages;
