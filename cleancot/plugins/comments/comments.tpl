@@ -29,45 +29,73 @@
 
     <!-- Условие: проверка, не используется ли AJAX для загрузки комментариев -->
     <!-- IF !{COMMENTS_IS_AJAX} -->
-      <!-- Условие: если комментарии скрыты (COMMENTS_DISPLAY = 'none') -->
-      <!-- IF {COMMENTS_DISPLAY} === 'none' -->
-      <div class="mb-3"> <!-- Пользовательский класс для выравнивания вправо и нижнего отступа -->
-        <a href="#" onclick="toggleblock('comments'); return false" style="display: inline-flex; align-items: center; gap: 5px"> <!-- Ссылка для переключения видимости блока комментариев -->
-          {PHP.R.icon_comments} <!-- Иконка комментариев, определённая в ресурсах темы -->
-          {PHP.L.comments_comments}: {TOTAL_ENTRIES} <!-- Текст "Комментарии" и количество -->
-        </a>
-      </div>
-      <!-- ENDIF -->
-      <div id="comments" class="comments-container" {COMMENTS_CONTAINER_PARAMS} <!-- IF {COMMENTS_DISPLAY} == 'none' -->style="display:none;"<!-- ENDIF -->> <!-- Контейнер комментариев; {COMMENTS_CONTAINER_PARAMS}: дополнительные HTML-атрибуты -->
+    <!-- Условие: если комментарии скрыты (COMMENTS_DISPLAY = 'none') -->
+    <!-- IF {COMMENTS_DISPLAY} === 'none' -->
+    <div class="mb-3"> <!-- Пользовательский класс для выравнивания вправо и нижнего отступа -->
+      <a href="#" onclick="toggleblock('comments'); return false" style="display: inline-flex; align-items: center; gap: 5px"> <!-- Ссылка для переключения видимости блока комментариев -->
+        {PHP.R.icon_comments} <!-- Иконка комментариев, определённая в ресурсах темы -->
+        {PHP.L.comments_comments}: {TOTAL_ENTRIES} <!-- Текст "Комментарии" и количество -->
+      </a>
+    </div>
+    <!-- ENDIF -->
+    <div id="comments" class="comments-container" {COMMENTS_CONTAINER_PARAMS} <!-- IF {COMMENTS_DISPLAY} == 'none' -->style="display:none;"<!-- ENDIF -->> <!-- Контейнер комментариев; {COMMENTS_CONTAINER_PARAMS}: дополнительные HTML-атрибуты -->
     <!-- ENDIF -->
 
-    <div id="comments-block" class="block comments-block" {COMMENTS_BLOCK_PARAMS}> <!-- Блок комментариев; {COMMENTS_BLOCK_PARAMS}: дополнительные HTML-атрибуты -->
-      <!-- BEGIN: COMMENTS_ROW --> <!-- Цикл для вывода каждого комментария -->
-      <div id="com{COMMENTS_ROW_ID}" class="comment-row mb-3"> <!-- Уникальный ID комментария; класс для стилизации -->
-        <div class="row g-3"> <!-- Bootstrap-сетка с отступами -->
-          <div class="col-12 col-md-3 comments1"> <!-- Колонка для аватара и мета-информации -->
-            <p>{COMMENTS_ROW_AUTHOR_AVATAR}</p> <!-- Аватар автора комментария -->
-            <p>
-              <a href="{COMMENTS_ROW_URL}">{COMMENTS_ROW_ORDER}.</a> <!-- Ссылка на комментарий с его порядковым номером -->
-              <!-- IF {COMMENTS_ROW_AUTHOR_DETAILS_URL} --><a href="{COMMENTS_ROW_AUTHOR_DETAILS_URL}"><!-- ENDIF --> <!-- Условие: если есть URL профиля автора -->
+    <div id="comments-block" class="comments-block" {COMMENTS_BLOCK_PARAMS}> <!-- Блок комментариев; {COMMENTS_BLOCK_PARAMS}: дополнительные HTML-атрибуты -->
+      <div class="list-group list-striped list-group-flush mb-5">
+        <!-- BEGIN: COMMENTS_ROW --> <!-- Цикл для вывода каждого комментария -->
+        <div id="com{COMMENTS_ROW_ID}" class="list-group-item list-group-item-action"> <!-- Уникальный ID комментария; класс для стилизации -->
+          <div class="row g-3"> <!-- Bootstrap-сетка с отступами -->
+            <div class="col-12 col-md-3"> <!-- Колонка для аватара и мета-информации -->
+              <!-- Условие: проверка активности модуля Files без плагина userimages -->
+              <!-- IF {PHP|cot_module_active('files')} AND !{PHP|cot_plugin_active('userimages')} -->
+              <!-- Условие: проверка наличия аватара -->
+              <!-- IF {COMMENTS_ROW_AUTHOR_AVATAR_ID} > 0 -->
+              <!-- Отображение аватара пользователя -->
+              <img class="rounded" src="{COMMENTS_ROW_AUTHOR_AVATAR_URL}" width="55" height="55" alt="{COMMENTS_ROW_NAME}">
+              <!-- Иначе: отображение дефолтного аватара -->
+              <!-- ELSE -->
+              <!-- Дефолтный аватар из темы -->
+              <img class="rounded" width="55" height="55" alt="{COMMENTS_ROW_NAME}" src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/user-noavatar.webp">
+              <!-- Конец условия для аватара -->
+              <!-- ENDIF -->
+              <!-- Конец условия для модуля Files -->
+              <!-- ENDIF -->
+              <!-- Проверяем, активен ли плагин 'userimages' -->
+              <!-- IF {PHP|cot_plugin_active('userimages')} -->
+              <!-- Условие: проверка наличия аватара через userimages -->
+              <!-- IF {COMMENTS_ROW_AUTHOR_AVATAR_SRC} -->
+              <!-- Отображение аватара из userimages -->
+              <img class="rounded" src="{COMMENTS_ROW_AUTHOR_AVATAR_SRC}" alt="{COMMENTS_ROW_AUTHOR_NICKNAME}" width="50" height="50">
+              <!-- Иначе: дефолтный аватар -->
+              <!-- ELSE -->
+              <!-- Дефолтный аватар из ресурсов темы -->
+              <img class="rounded" src="{PHP.R.userimg_default_avatar}" alt="{COMMENTS_ROW_AUTHOR_NICKNAME}" width="50" height="50">
+              <!-- Конец условия для аватара -->
+              <!-- ENDIF -->
+              <!-- Конец условия для плагина userimages -->
+              <!-- ENDIF -->
+              <p>
+                <a href="{COMMENTS_ROW_URL}">{COMMENTS_ROW_ORDER}.</a> <!-- Ссылка на комментарий с его порядковым номером -->
+                <!-- IF {COMMENTS_ROW_AUTHOR_DETAILS_URL} --><a href="{COMMENTS_ROW_AUTHOR_DETAILS_URL}"><!-- ENDIF --> <!-- Условие: если есть URL профиля автора -->
                 {COMMENTS_ROW_AUTHOR_FULL_NAME} <!-- Полное имя автора -->
-              <!-- IF {COMMENTS_ROW_AUTHOR_DETAILS_URL} --></a><!-- ENDIF -->
-            </p>
-            <p>{COMMENTS_ROW_DATE}</p> <!-- Дата публикации комментария -->
-          </div>
-          <div class="col-12 col-md-9 comments2"> <!-- Колонка для текста комментария -->
-            {COMMENTS_ROW_TEXT} <!-- Текст комментария -->
-            <!-- IF {COMMENTS_ROW_DELETE} OR {COMMENTS_ROW_EDIT} --> <!-- Условие: доступны действия удаления или редактирования -->
-            <div class="margintop10 text-end"> <!-- Пользовательский класс для верхнего отступа; Bootstrap-класс для выравнивания вправо -->
-              <!-- IF {COMMENTS_ROW_AUTHOR_IP} -->{PHP.L.Ip}: {COMMENTS_ROW_AUTHOR_IP}<!-- ENDIF --> <!-- IP автора, если доступно -->
-              {COMMENTS_ROW_EDIT} {COMMENTS_ROW_DELETE} <!-- Ссылки для редактирования и удаления -->
+                <!-- IF {COMMENTS_ROW_AUTHOR_DETAILS_URL} --></a><!-- ENDIF -->
+              </p>
+              <p>{COMMENTS_ROW_DATE}</p> <!-- Дата публикации комментария -->
             </div>
-            <!-- ENDIF -->
+            <div class="col-12 col-md-9 comments2"> <!-- Колонка для текста комментария -->
+              {COMMENTS_ROW_TEXT} <!-- Текст комментария -->
+              <!-- IF {COMMENTS_ROW_DELETE} OR {COMMENTS_ROW_EDIT} --> <!-- Условие: доступны действия удаления или редактирования -->
+              <div class="margintop10 text-end"> <!-- Пользовательский класс для верхнего отступа; Bootstrap-класс для выравнивания вправо -->
+                <!-- IF {COMMENTS_ROW_AUTHOR_IP} -->{PHP.L.Ip}: {COMMENTS_ROW_AUTHOR_IP}<!-- ENDIF --> <!-- IP автора, если доступно -->
+                {COMMENTS_ROW_EDIT} {COMMENTS_ROW_DELETE} <!-- Ссылки для редактирования и удаления -->
+              </div>
+              <!-- ENDIF -->
+            </div>
           </div>
         </div>
-        <hr class="clear marginbottom10" /> <!-- Пользовательский разделитель с классами для очистки и отступа -->
+        <!-- END: COMMENTS_ROW -->
       </div>
-      <!-- END: COMMENTS_ROW -->
 
       <!-- IF {PAGINATION} --> <!-- Условие: если есть пагинация -->
       <nav aria-label="Comments navigation" class="paging clear"> <!-- Навигация пагинации; пользовательский класс -->
@@ -104,14 +132,14 @@
           <form action="{COMMENT_FORM_ACTION}" method="post" name="comment-form" class="needs-validation" novalidate> <!-- Форма отправки комментария; {COMMENT_FORM_ACTION}: URL для отправки -->
             <div class="row g-3"> <!-- Bootstrap-сетка для полей формы -->
               <!-- BEGIN: GUEST --> <!-- Блок для гостей (неавторизованных пользователей) -->
-              <div class="col-12 marginbottom10"> <!-- Колонка с пользовательским отступом -->
+              <div class="col-12 mb-3"> <!-- Колонка с Bootstrap-отступом -->
                 <label for="commentAuthor" class="form-label fw-semibold">{PHP.L.Name}</label> <!-- Метка "Имя" -->
                 {COMMENT_FORM_AUTHOR} <!-- Поле ввода имени гостя -->
               </div>
               <!-- END: GUEST -->
 
               <!-- BEGIN: EXTRA_FIELD --> <!-- Блок для дополнительных полей -->
-              <div class="col-12 marginbottom10"> <!-- Колонка с пользовательским отступом -->
+              <div class="col-12 mb-3"> <!-- Колонка с Bootstrap-отступом -->
                 <label for="extraField" class="form-label fw-semibold">{COMMENT_FORM_EXTRA_FIELD_TITLE}</label> <!-- Метка дополнительного поля -->
                 {COMMENT_FORM_EXTRA_FIELD} <!-- Поле дополнительного поля -->
               </div>
@@ -123,7 +151,7 @@
               </div>
 
               <!-- IF {PHP|cot_module_active('files')} AND !{PHP|cot_module_active('pfs')} --> <!-- Условие: активен модуль 'files', но не 'pfs' -->
-              <div class="col-12 marginbottom10"> <!-- Колонка с пользовательским отступом -->
+              <div class="col-12 mb-3"> <!-- Колонка с Bootstrap-отступом -->
                 <label for="commentFiles" class="form-label fw-semibold">{PHP.L.CleanCot_Files}</label> <!-- Метка "Файлы" (для модуля files) -->
                 <div class="mt-2"> <!-- Контейнер с отступом -->
                   <!-- IF {COMMENT_FORM_PFS} -->{COMMENT_FORM_PFS}<!-- ENDIF --> <!-- Личные файлы -->
@@ -133,7 +161,7 @@
               <!-- ENDIF -->
 
               <!-- IF {PHP|cot_module_active('pfs')} AND !{PHP|cot_module_active('files')} --> <!-- Условие: активен модуль 'pfs', но не 'files' -->
-              <div class="col-12 marginbottom10"> <!-- Колонка с пользовательским отступом -->
+              <div class="col-12 mb-3"> <!-- Колонка с Bootstrap-отступом -->
                 <label for="commentFiles" class="form-label fw-semibold">{PHP.L.Files}</label> <!-- Метка "Файлы" (для модуля pfs) -->
                 <div class="mt-2"> <!-- Контейнер с отступом -->
                   <!-- IF {COMMENT_FORM_PFS} -->{COMMENT_FORM_PFS}<!-- ENDIF --> <!-- Личные файлы -->
@@ -143,7 +171,7 @@
               <!-- ENDIF -->
 
               <!-- IF {PHP.usr.id} == 0 AND {COMMENT_FORM_VERIFY_IMG} --> <!-- Условие: гость и требуется капча -->
-              <div class="col-12 marginbottom10"> <!-- Колонка с пользовательским отступом -->
+              <div class="col-12 mb-3"> <!-- Колонка с Bootstrap-отступом -->
                 <label for="commentVerify" class="form-label fw-semibold">{PHP.L.Verification}</label> <!-- Метка "Проверка" -->
                 <div class="d-flex align-items-center gap-2"> <!-- Flex-контейнер для капчи -->
                   {COMMENT_FORM_VERIFY_IMG} <!-- Изображение капчи -->
@@ -158,7 +186,7 @@
               </div>
               <!-- ENDIF -->
 
-              <div class="col-12 margin10 text-center"> <!-- Колонка для кнопки с пользовательскими отступами и центрированием -->
+              <div class="col-12 mb-3 text-center"> <!-- Колонка для кнопки с Bootstrap-отступами и центрированием -->
                 <button type="submit" class="btn btn-primary">{PHP.L.Submit}</button> <!-- Кнопка "Отправить" -->
               </div>
             </div>
