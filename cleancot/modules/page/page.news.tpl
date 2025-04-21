@@ -160,7 +160,7 @@
                 <!-- Условие Cotonti: проверка активности плагина 'comments' -->
                 <!-- IF {PHP|cot_plugin_active('comments')} -->
                     <!-- Блок комментариев из Cotonti -->
-                    {PAGE_COMMENTS_DISPLAY}
+                    {PAGE_COMMENTS}
                 <!-- Конец условия комментариев -->
                 <!-- ENDIF -->
             </div>
