@@ -7,7 +7,7 @@
  * Theme: CleanCot  
  * Version: 1.0.2 
  * Created: 07 March 2025 
- * Updated: 08 April 2025 
+ * Updated: 22 April 2025 
  * Author: webitproff 
  * Source: https://github.com/webitproff/cot-CleanCot 
  * Demo:  https://cleancot.previewit.work
@@ -26,6 +26,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Задаёт адаптивность для мобильных устройств -->
         <meta name="generator" content="Cotonti https://www.cotonti.com" /> <!-- Указывает, что сайт создан на Cotonti -->
         <!-- IF {HEADER_CANONICAL_URL} --><link rel="canonical" href="{HEADER_CANONICAL_URL}" /><!-- ENDIF --> <!-- Условно добавляет канонический URL, если он задан -->
+		<!-- IF {PHP.out.meta} -->{PHP.out.meta}<!-- ENDIF -->
         {HEADER_BASEHREF} <!-- Вставляет базовый URL из Cotonti -->
         {HEADER_HEAD} <!-- Вставляет дополнительные элементы head из системы (CSS, JS и т.д.) -->
         <link rel="shortcut icon" href="favicon.ico" /> <!-- Подключает классическую иконку сайта в формате ICO -->
@@ -49,7 +50,7 @@
                     </div> <!-- Закрывает колонку с заголовком -->
                     <!-- Локализация, поиск, кнопка аккаунта (30% на ноутбуках) --> <!-- Комментарий для правой части -->
                     <div class="col-12 col-lg-4 d-flex justify-content-between justify-content-lg-end align-items-center mt-3 mt-lg-0"> <!-- Колонка: 100% на мобильных, 4/12 на ноутбуках, с flex-выравниванием -->
-			<!-- IF {PHP|cot_plugin_active('i18n')} --> <!-- Условие: активен плагин 'i18n' -->
+						<!-- IF {PHP|cot_plugin_active('i18n')} --> <!-- Условие: активен плагин 'i18n' -->
                         <!-- Локализация --> <!-- Комментарий для блока локализации -->
                         <div class="me-3"> <!-- Контейнер для флагов с правым отступом -->
                             <!-- BEGIN: I18N_LANG --> <!-- Открывает цикл для вывода языков -->
@@ -58,7 +59,7 @@
                                 <!-- END: I18N_LANG_ROW --> <!-- Закрывает строку языка -->
                             <!-- END: I18N_LANG --> <!-- Закрывает цикл языков -->
                         </div> <!-- Закрывает контейнер локализации -->
-			<!-- ENDIF -->
+						<!-- ENDIF -->
                         <!-- Поиск --> <!-- Комментарий для блока поиска -->
                         <div class="me-3"> <!-- Контейнер для кнопки поиска с правым отступом -->
                             <button class="btn text-white" data-bs-toggle="modal" data-bs-target="#searchModal" title="{PHP.L.Search}"> <!-- Кнопка открытия модального окна поиска -->
@@ -102,9 +103,6 @@
                         <!-- BEGIN: USER --> <!-- Условие для авторизованных пользователей -->
                             <div> <!-- Контейнер для кнопки -->
                                 <button class="btn text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#accountUserOffcanvas" aria-controls="accountOffcanvas" title="{PHP.L.Account}"> <!-- Кнопка открытия правого Offcanvas -->
-									<!-- IF !{PHP|cot_module_active('files')} AND !{PHP|cot_plugin_active('userimages')} -->
-									<i class="fa-solid fa-user fa-lg"></i>
-									<!-- ENDIF -->
 									<!-- IF {PHP|cot_module_active('files')} AND !{PHP|cot_plugin_active('userimages')} --> <!-- Условие: активен модуль files, но не активен userimages -->
 										<!-- IF {PHP.usr.profile.user_avatar} --> <!-- Условие: у пользователя есть аватар -->
 											<img class="rounded-circle me-2" src="{PHP.usr.profile.user_avatar|cot_filesUserAvatarUrl($this)}" alt="{PHP.usr.name}" width="40" height="40" style="object-fit: cover;" /> <!-- Аватар через модуль files -->
@@ -215,7 +213,6 @@
                                         </a> <!-- Закрывает ссылку -->
                                     </li> <!-- Закрывает элемент списка -->
                                 <!-- ENDIF --> <!-- Закрывает условие форумов -->
-				<!-- IF {PHP.structure.page.news} -->
                                 <!-- IF {PHP.structure.page.news.path} --> <!-- Условие: существует категория новостей -->
                                     <li class="nav-item"> <!-- Элемент списка -->
                                         <a class="nav-link" href="{PHP|cot_url('page','c=news')}" title="{PHP.structure.page.news.title}"> <!-- Ссылка на новости -->
@@ -232,7 +229,6 @@
                                         </a> <!-- Закрывает ссылку -->
                                     </li> <!-- Закрывает элемент списка -->
                                 <!-- ENDIF --> <!-- Закрывает условие новостей -->
-				<!-- ENDIF -->
                                 <!-- IF {PHP|cot_plugin_active('userarticles')} --> <!-- Условие: активен плагин userarticles -->
                                     <li class="nav-item"> <!-- Элемент списка -->
                                         <a class="nav-link" href="{PHP|cot_url('plug', 'e=userarticles')}" title="{PHP.L.userarticles_title}"> <!-- Ссылка на пользовательские статьи -->
