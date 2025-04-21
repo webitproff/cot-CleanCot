@@ -8,7 +8,7 @@
  * Theme: CleanCot  
  * Version: 1.0.2 
  * Created: 07 March 2025 
- * Updated: 04 April 2025 
+ * Updated: 22 April 2025 
  * Author: webitproff 
  * Source: https://github.com/webitproff/cot-CleanCot 
  * Demo:  https://cleancot.previewit.work
@@ -102,7 +102,9 @@
                             <div class="mb-3">{PHP.L.CleanCot_Comments}: {PAGE_COMMENTS_COUNT}</div>
                         <!-- Конец условия комментариев -->
                         <!-- ENDIF -->
-
+						<!-- IF {PHP|cot_plugin_active('seoarticle')} -->
+						{PAGE_READ_TIME}
+						<!-- ENDIF -->
                         <!-- Сетка Bootstrap для тегов и категории с отступами -->
                         <div class="row g-3 mb-3">
                             <!-- Колонка тегов: 100% на малых, 6/12 на средних -->
@@ -468,6 +470,30 @@
                     </div>
                 <!-- Конец блока краткого содержания -->
                 <!-- END: PAGE_MULTI -->
+				<!-- IF {PHP|cot_plugin_active('seoarticle')} -->
+				<!-- IF {RELATED_PAGES} -->
+				<div class="related">
+					<!-- BEGIN: MAIN.RELATED_PAGES.RELATED_ROW -->
+					<a href="{RELATED_ROW_URL}">
+						<div class="position-relative overflow-hidden rounded-5 shadow-bottom" style="aspect-ratio: 2 / 1;">
+							<!-- Условие Cotonti: проверка наличия главного изображения через экстраполяцию -->
+							<!-- IF {RELATED_ROW_LINK_MAIN_IMAGE} -->
+								<!-- Главное изображение страницы из Cotonti, адаптивное с обрезкой -->
+								<img src="{RELATED_ROW_LINK_MAIN_IMAGE}" alt="{RELATED_ROW_TITLE}" class="img-fluid object-fit-cover">
+							<!-- Альтернатива: если главного изображения нет -->
+							<!-- ELSE -->
+								<!-- Дефолтное изображение из темы Cotonti -->
+								<img src="{PHP.cfg.themes_dir}/{PHP.cfg.defaulttheme}/img/cotonti-cleancot.webp" alt="{PAGE_TITLE}" class="img-fluid object-fit-cover">
+							<!-- Конец условия изображения -->
+							<!-- ENDIF -->
+						</div>
+						<h3 class="h5 mb-0">{RELATED_ROW_TITLE}</h3>
+						<p>{RELATED_ROW_DESC}</p>
+					</a>
+					<!-- END: MAIN.RELATED_PAGES.RELATED_ROW -->
+				</div>
+				<!-- ENDIF -->
+				<!-- ENDIF -->
             </div>
         </div>
     </div>
