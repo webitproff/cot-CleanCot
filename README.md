@@ -395,8 +395,8 @@ HTML-блок в файле themes/cleancot/inc/two-level-drop-down-menu.tpl<br 
 2. **[Export to Excel via PhpSpreadsheet](https://github.com/webitproff/cot-excel_export) for CMF Cotonti**
    Exporting Articles to Excel from the Database in Cotonti via PhpSpreadsheet.Composer is not required for installation.
    
-3. **[Export to Excel via PhpSpreadsheet](https://github.com/webitproff/cot-excel_export) for CMF Cotonti**
-   Exporting Articles to Excel from the Database in Cotonti via PhpSpreadsheet.Composer is not required for installation.
+3. **[Import from Excel via PhpSpreadsheet](https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer) for CMF Cotonti**
+  The plugin for importing articles from Excel for all Cotonti-based websites.Composer is not required for installation.
    
 4. **[SeoArticle Plugin for Cotonti](https://github.com/webitproff/seoarticle)**
    The SeoArticle plugin enhances the SEO capabilities of the Cotonti CMF's Pages module by adding meta tags, Open Graph, Twitter Card, Schema.org structured data, keyword extraction, reading time estimation, and related articles functionality.
