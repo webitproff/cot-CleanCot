@@ -473,8 +473,9 @@
 				<!-- IF {PHP|cot_plugin_active('seoarticle')} -->
 				<!-- IF {RELATED_PAGES} -->
 				<div class="related">
+				<h2 class="h5 my-3">{PHP.L.seoarticle_related}</h2>
 					<!-- BEGIN: MAIN.RELATED_PAGES.RELATED_ROW -->
-					<a href="{RELATED_ROW_URL}">
+					<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{RELATED_ROW_URL}">
 						<div class="position-relative overflow-hidden rounded-5 shadow-bottom" style="aspect-ratio: 2 / 1;">
 							<!-- Условие Cotonti: проверка наличия главного изображения через экстраполяцию -->
 							<!-- IF {RELATED_ROW_LINK_MAIN_IMAGE} -->
@@ -487,7 +488,7 @@
 							<!-- Конец условия изображения -->
 							<!-- ENDIF -->
 						</div>
-						<h3 class="h5 mb-0">{RELATED_ROW_TITLE}</h3>
+						<h3 class="h5 my-4">{RELATED_ROW_TITLE}</h3>
 						<p>{RELATED_ROW_DESC}</p>
 					</a>
 					<!-- END: MAIN.RELATED_PAGES.RELATED_ROW -->
