@@ -58,7 +58,21 @@
                   </div> <!-- Закрывает группу ввода -->
                 </div> <!-- Закрывает колонку описания -->
 
-                <!-- Экстраполе "YouTube" -->
+		<!-- получаем в один блок все экстраполя для топика из Cot::$db->forum_topics - Модуль Forums-->
+                <!-- BEGIN: TOPIC_EXTRAFLD -->
+                <div class="col-12">
+                    <label class="form-label fw-semibold"><!-- IF {ZAKAZ_NEWTOPIC_FORM_TOPIC_EXTRAFLD_TITLE} -->{ZAKAZ_NEWTOPIC_FORM_TOPIC_EXTRAFLD_TITLE}:<!-- ENDIF --></label>
+                    <div class="input-group has-validation">
+                        <!-- IF {ZAKAZ_NEWTOPIC_FORM_TOPIC_EXTRAFLD} -->
+                        <div class="operation-checkboxes-list">
+                            {ZAKAZ_NEWTOPIC_FORM_TOPIC_EXTRAFLD}
+                        </div>
+                        <!-- ENDIF -->
+                    </div>
+                </div>
+                <!-- END: TOPIC_EXTRAFLD -->
+
+                <!-- Экстраполе "YouTube" (так используем - вне блока TOPIC_EXTRAFLD, если нам в форме создания топика нужно получить лишь одно конкретное экстраполе топика (не постов), в то время когда их несколько) -->
                 <!-- IF {FORUMS_NEWTOPIC_FORM_TOPIC_XTR_FLD_YOUTUBE} --> <!-- Условие: если доступно поле YouTube -->
 				<!-- в Управление сайтом / Прочее / Экстраполя / Таблица cot_forum_topics - Модуль Forums нужно создать экстраполе с названием xtr_fld_youtube -->
                   <div class="col-12"> <!-- Колонка полной ширины -->
